@@ -1,8 +1,15 @@
+import getSongs from "@/actions/getSongs";
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
 
 
-export default function Home() {
+// No Cache, Up to Date 
+export const revalidate = 0;
+
+
+export default async function Home() {
+
+  const songs = await getSongs();
   return (
     <div className="
       bg-neutral-900 
@@ -43,7 +50,7 @@ export default function Home() {
             Newest songs
           </h1>
         </div>
-          List of Songs!
+          {songs.map((song) => <div>{song.title}</div>)}
       </div>
     </div>
   )

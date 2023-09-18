@@ -28,7 +28,7 @@ const UploadModal = () => {
     const supabaseClient = useSupabaseClient();
 
     const router = useRouter();
-
+    
     const {
         register,
         handleSubmit,
